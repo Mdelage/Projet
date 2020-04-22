@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue sur le blog des crêpes!</title>
+</head>
+<body>
+
+<h1> Voici la liste des articles disponibles:</h1>
+
+{% for article in dernier_articles %}
+    <div class="liste_articles">
+        <h3> {{ article.titre }}, par {{ article.auteur }}</h3>
+        <p> {{ article.contenu|truncatewords_html:10 }}, +++++ {{ article.slug }}</p>
+
+        <a href="{% url 'lire' article.id article.slug %}"> Lire la suite </a>
+
+    </div>
+{% empty %}
+<h3>Pas d'articles à afficher!</h3>
+{% endfor %}
+</body>
+</html>

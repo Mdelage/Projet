@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>{{article.titre}}</h1>
+    <h3>par {{article.auteur}} dans {{article.categorie.nom}}, le {{article.date|date:"DATE_FORMAT"}}</h3>
+    <br>
+    <p>{{article.contenu|linebreaks}}</p>
+</body>
+</html>

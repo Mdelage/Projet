@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} Bienvenue! {%endblock%}
+
+{%block nav %} <a href="{% url "voir_articles" 5 %}"> Essaye de cliquer là!</a> {% endblock %}
+
+{%block content%}
+    <p>
+        Je vous souhaite la bienvenue,
+        {% if sexe == "Femme" %} Madame
+        {% elif sexe == "Homme" %} Monsieur
+        {% else %} Chose
+        {% endif %} !
+    </p>
+
+    <p>
+        Voici une liste de couleur:
+
+        <ul>
+            {% for code, couleur in couleurs_dico.items %}
+            <li style="color: #{{code}}" >{{couleur}}</li>
+            {% empty %} <li> Cette liste est vide :( </li>
+            {% endfor %}
+        </ul>
+    </p>
+
+    <p>
+        Voici une liste de nombres:
+
+        <ul>
+        {% for i in iterable_chiffre %}
+        <li> Je suis le chiffre {{ i }}</li>
+        {% endfor %}
+    </ul>
+    </p>
+
+    <p>Voici une image de crêpes:</p>
+    {% load static %}
+    <img title="CREPES" alt="image_de_crepes" src="{% static 'blog/crepes.jpg' %}">
+{% endblock%}}
